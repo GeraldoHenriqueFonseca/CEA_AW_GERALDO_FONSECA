@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: stg_production
+    schema: raw_adventure_works
+    tables:
+      - name: product
+        description: "Tabela com informações de produtos, incluindo categorias, preços e datas de modificação."
+        columns:
+          - name: productid
+            description: "ID único do produto."
+            tests:
+              - unique
+              - not_null
+
+          - name: productsubcategoryid
+            description: "O produto é um membro desta subcategoria de produto. Chave estrangeira para ProductSubCategory.ProductSubCategoryID."
+
+          - name: product_name
+            description: "Nome do produto no catálogo."
+
+          - name: listprice
+            description: "Preço de lista do produto."
+
+          - name: modifieddate
+            description: "Data da última atualização do produto."
+
+      - name: productsubcategory
+        description: "Subcategorias de produtos."
+        columns:
+          - name: productsubcategoryid
+            description: "Chave primária para registros ProductSubcategory."
+            tests:
+              - unique
+              - not_null
+
+          - name: productcategoryid
+            description: "Número de identificação da categoria do produto. Chave estrangeira para ProductCategory.ProductCategoryID."
+
+          - name: product_subcategory
+            description: "Descrição da subcategoria."
+
+          - name: modifieddate
+            description: "Data da última atualização da subcategoria."
+
+      - name: productcategory
+        description: "Tabela de categorias principais dos produtos para organização hierárquica."
+        columns:
+          - name: productcategoryid
+            description: "ID da categoria do produto."
+            tests:
+              - unique
+              - not_null
+
+          - name: product_category
+            description: "Nome da categoria do produto."
+            
+          - name: modifieddate
+            description: "Data da última atualização da categoria."

@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: dim_region
+    description: "Esta tabela reúne informações sobre endereços, cidades e país/região relacionadas aos clientes."
+    columns:
+      - name: sk_region
+        description: "Chave SK gerada para o identificador exclusivo da tabela com base nas colunas address_id, addressline e city."
+        tests:
+          - unique
+          - not_null 
+
+      - name: address_id
+        description: "ID único para cada endereço."
+        tests:
+          - unique
+          - not_null 
+
+      - name: addressline
+        description: "Endereço."  
+
+      - name: city
+        description: "Cidade."    
+
+      - name: state_province_id
+        description: "ID do estado ou província." 
+
+      - name: country_region_code
+        description: "Código da região do país."     
+
+      - name: name_province
+        description: "Nome da província."   
+
+      - name: state_province_code
+        description: "Código do estado ou província."   
+
+      - name: territory_id
+        description: "ID único para cada território de vendas."    
+
+      - name: country_name
+        description: "Nome do país."
+
+      - name: region_name
+        description: "Nome da região de vendas."  
+
+      - name: continent
+        description: "Continente ao qual o território pertence."  
+
+      - name: sales_qty
+        description: "Vendas acumuladas do ano."   
+           
+      - name: sales_last_year
+        description: "Vendas do ano anterior."

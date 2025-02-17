@@ -1,0 +1,35 @@
+
+version: 2
+
+models:
+  - name: int_customer_details
+    description: "Esta tabela reúne informações sobre os clientes."
+    columns:
+      - name: customerid
+        description: "ID único do cliente."
+        tests:
+          - unique
+          - not_null
+
+      - name: businessentityid
+        description: "ID único da entidade."
+        tests: 
+          - unique
+
+      - name: storeid
+        description: "ID da loja associada ao cliente."
+
+      - name: persontype
+        description: "Tipo de pessoa (ex.: cliente."
+
+      - name: firstname
+        description: "Primeiro nome."
+
+      - name: middlename
+        description: "Nome do meio."
+
+      - name: lastname
+        description: "Sobrenome."
+        
+      - name: fullname
+        description: "Nome completo da pessoa."

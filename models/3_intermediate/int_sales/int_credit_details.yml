@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: int_credit_details
+    description: "Esta tabela reúne informações sobre os detalhes do cartão dos clientes."
+    columns:
+      - name: creditcardid  
+        description: "Identificador único do cartão de crédito."
+        tests:  
+          - unique
+          - not_null  
+
+      - name: cardtype
+        description: "Tipo do cartão de crédito; 'Not informed' se ausente."
+        tests:  
+          - not_null 
+          
+      - name: businessentityid
+        description: "ID da entidade associada ao cartão."

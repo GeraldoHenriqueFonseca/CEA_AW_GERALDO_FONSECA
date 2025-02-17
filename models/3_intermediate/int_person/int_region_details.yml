@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: int_region_details
+    description: "Esta tabela reúne informações sobre endereços, cidades e país/região relacionadas aos clientes."
+    columns:    
+      - name: addressid
+        description: "ID único para cada endereço."
+        tests:
+          - unique
+          - not_null 
+
+      - name: addressline
+        description: "Linha de endereço."  
+
+      - name: city
+        description: "Cidade."    
+
+      - name: stateprovinceid
+        description: "ID do estado ou província." 
+
+      - name: countryregioncode
+        description: "Código da região do país."     
+
+      - name: name_province
+        description: "Nome da província."   
+
+      - name: stateprovincecode
+        description: "Código do estado ou província."   
+
+      - name: territoryid
+        description: "ID único para cada território de vendas."    
+
+      - name: country_name
+        description: "Nome do país."
+
+      - name: region_name
+        description: "Nome da região de vendas."  
+
+      - name: continent
+        description: "Continente ao qual o território pertence."  
+
+      - name: salesytd
+        description: "Vendas acumuladas do ano."   
+           
+      - name: saleslastyear
+        description: "Vendas do ano anterior."

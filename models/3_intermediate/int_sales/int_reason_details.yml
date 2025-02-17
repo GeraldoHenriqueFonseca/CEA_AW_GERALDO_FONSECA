@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: int_reason_details
+    description: "Esta tabela reúne informações sobre endereços, cidades e país/região relacionados aos clientes."
+    columns:
+      - name: salesorderid
+        description: "ID único do pedido de venda."
+        tests: 
+          - unique
+          - not_null
+
+      - name: promotion_names_agg
+        description: "Lista de nomes de promoções aplicadas ao pedido, agregada como uma string separada por vírgulas."
+
+      - name: reason_types_agg
+        description: "Lista de tipos de razões associadas ao pedido, agregada como uma string separada por vírgulas."

@@ -1,0 +1,91 @@
+version: 2
+
+sources:
+  - name: stg_person
+    schema: raw_adventure_works
+    tables:
+      - name: person
+        description: "Tabela com informações de indivíduos: nome, tipo e data de última modificação."
+        columns:
+          - name: business_entity_id
+            description: "ID único para cada pessoa ou organização."
+            tests:
+              - unique
+              - not_null
+
+          - name: person_type
+            description: > 
+              "Tipo primário de pessoa: SC = Contato da loja, IN = Cliente individual (varejo), SP = Vendedor,
+              EM = Funcionário (não vendas), VC = Contato do fornecedor, GC = Contato geral"
+
+          - name: first_name
+            description: "Primeiro nome."
+
+          - name: middle_name
+            description: "Nome do meio (opcional)."
+
+          - name: last_name
+            description: "Sobrenome."
+            
+          - name: full_name
+            description: "Nome completo."
+
+          - name: modified_date
+            description: "Data da última modificação."
+
+      - name: address
+        description: "Tabela de endereços com rua, cidade e estado."
+        columns:
+          - name: address_id
+            description: "ID único para cada endereço."
+            tests:
+              - unique
+              - not_null
+
+          - name: addressline
+            description: "Rua e número do endereço."
+
+          - name: city
+            description: "Cidade."
+
+          - name: state_province_id
+            description: "ID do estado ou província."
+
+      - name: country_region
+        description: "Tabela de países e regiões com códigos e nomes."
+        columns:
+          - name: countryregioncode
+            description: "Código único do país/região."
+            tests:
+              - unique
+              - not_null
+
+          - name: country_name
+            description: "Nome completo do país/região."
+
+          - name: modified_date
+            description: "Data da última modificação."
+
+      - name: state_province
+        description: "Tabela de estados/províncias com códigos e territórios."
+        columns:
+          - name: stateprovinceid
+            description: "ID único do estado/província."
+            tests:
+              - unique
+              - not_null
+
+          - name: name_province
+            description: "Nome do estado/província."
+
+          - name: territoryid
+            description: "ID do território em que o estado ou província está localizado. Chave estrangeira para SalesTerritory.SalesTerritoryID."
+            
+          - name: stateprovincecode
+            description: "Código do estado/província."
+
+          - name: countryregioncode
+            description: "Código de país ou região padrão ISO. Chave estrangeira para CountryRegion.CountryRegionCode."
+
+          - name: modifieddate
+            description: "Data da última atualização."
