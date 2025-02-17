@@ -78,14 +78,14 @@ sources:
           - name: name_province
             description: "Nome do estado/província."
 
-          - name: territoryid
+          - name: territory_id
             description: "ID do território em que o estado ou província está localizado. Chave estrangeira para SalesTerritory.SalesTerritoryID."
             
-          - name: stateprovincecode
+          - name: state_province_code
             description: "Código do estado/província."
 
-          - name: countryregioncode
+          - name: country_region_code
             description: "Código de país ou região padrão ISO. Chave estrangeira para CountryRegion.CountryRegionCode."
 
-          - name: modifieddate
+          - name: modified_date
             description: "Data da última atualização."

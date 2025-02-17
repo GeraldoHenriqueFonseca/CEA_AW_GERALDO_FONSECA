@@ -57,20 +57,20 @@ with
                 when salesheader.onlineorderflag = false then 'Físico'
             end as sales_channel
             , salesheader.subtotal
-            , salesheader.taxamt
+            , salesheader.taxamt as tax_amount
             , salesheader.freight
-            , salesheader.totaldue
+            , salesheader.totaldue as total_due
         from {{ ref('stg_orderheader') }} as salesheader
         left join dim_region
-            on salesheader.billtoaddressid = dim_region.addressid
+            on salesheader.bill_toaddress_id = dim_region.address_id
         left join dim_credit_card 
-            on salesheader.creditcardid = dim_credit_card.creditcardid
+            on salesheader.credit_card_id = dim_credit_card.credit_card_id
         left join dim_customers
-            on salesheader.customerid = dim_customers.customerid
+            on salesheader.customer_id = dim_customers.customer_id
         left join dim_calendar
-            on salesheader.orderdate = dim_calendar.date_day
+            on salesheader.order_date = dim_calendar.date_day
         left join dim_reason
-            on salesheader.salesorderid = dim_reason.salesorderid
+            on salesheader.sales_order_id = dim_reason.sales_order_id
     )
 
 select *
